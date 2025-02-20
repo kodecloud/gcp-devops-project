@@ -5,3 +5,5 @@ steps:
   # push container image
 - name: "gcr.io/cloud-builders/docker"
   args: ["push", "gcr.io/$PROJECT_ID/gcpdevops"]
+- name: "logging bucket namr"
+  logsBucket: "gs://devops-pipeline-project-build_logs"
