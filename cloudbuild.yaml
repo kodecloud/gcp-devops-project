@@ -1,9 +1,10 @@
+logsBucket: "gs://devops-pipeline-project-build_logs"
+
 steps:
-  # build the container image
-- name: "gcr.io/cloud-builders/docker"
-  args: ["build", "-t", "gcr.io/$PROJECT_ID/gcpdevops", "."]
-  # push container image
-- name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/$PROJECT_ID/gcpdevops"]
-- name: "logging bucket namr"
-  logsBucket: "gs://devops-pipeline-project-build_logs"
+  # Build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/gcpdevops", "."]
+
+  # Push the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/gcpdevops"]
